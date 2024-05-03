@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dice_game_flutter/dice_widget.dart';
 
 class RadialContainer extends StatelessWidget {
   const RadialContainer(this.color1, this.color2, {super.key});
@@ -15,8 +16,7 @@ class RadialContainer extends StatelessWidget {
           radius: 1.3,
         ),
       ),
-      child: Center(
-          child: ),
+      child: const Center(child: DiceWidget()),
     );
   }
 }

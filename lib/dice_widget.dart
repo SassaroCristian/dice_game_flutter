@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
 class DiceWidget extends StatefulWidget {
-  DiceWidget({super.key});
+  const DiceWidget({super.key});
+  @override
+  _DiceWidgetState createState() => _DiceWidgetState();
+}
 
-  String activeDiceFace = 'assets/images/dice-1.png';
+class _DiceWidgetState extends State<DiceWidget> {
+  String activeDiceFace = 'assets/images/dice-4.png';
 
-  rollDice() {
-    activeDiceFace = 'assets/images/dice-3.png';
-    print('I should change the dice face');
+  void rollDice() {
+    setState(() {
+      activeDiceFace = 'assets/images/dice-1.png';
+    });
   }
 
   @override
@@ -24,15 +29,19 @@ class DiceWidget extends StatefulWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: ElevatedButton(
-              onPressed: rollDice,
-              style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.all(10),
-                  backgroundColor: color1,
-                  foregroundColor: color2,
-                  textStyle: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold)),
-              child: const Text('Roll the dice')),
-        )
+            onPressed: rollDice,
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.all(10),
+              backgroundColor: Colors.deepPurple,
+              foregroundColor: Colors.lightGreenAccent,
+              textStyle: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            child: const Text('Roll the dice'),
+          ),
+        ),
       ],
     );
   }
